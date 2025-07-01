@@ -22,6 +22,8 @@
         --font-lato: "Lato", sans-serif;
       }
     </style>
+    <!-- Added External CSS -->
+    <link rel="stylesheet" href="styles/style.css" />
     <title>Peddy</title>
   </head>
   <body class="font-lato">
@@ -67,9 +69,11 @@
             the readable content of a page when looking at its layout. The point
             of using Lorem Ipsum is that it has a.
           </p>
-          <button class="btn bg-[#0e7a81] text-white rounded-lg">
-            View More
-          </button>
+          <a href="#main-section">
+            <button class="btn bg-[#0e7a81] text-white rounded-lg">
+              View More
+            </button></a
+          >
         </div>
         <!-- banner Image -->
         <div>
@@ -81,9 +85,11 @@
     <!-- Header Section End -->
 
     <!-- Main Section Start -->
-    <main>
-      <!-- Adapt Section Start -->
-      <section class="w-11/12 mx-auto flex justify-center mt-24">
+    <main id="main-section">
+      <!-- Adapt content Start -->
+      <section
+        class="w-11/12 mx-auto flex flex-col-reverse justify-center items-center mt-24"
+      >
         <!-- pets category content -->
         <div class="max-w-[636px] text-center">
           <h2 class="text-4xl font-black mb-6">Adopt Your Best Friend</h2>
@@ -93,13 +99,202 @@
             of using Lorem Ipsum is that it has a.
           </p>
         </div>
-        <!-- pets category buttons container-->
-        <div id="category-btn-container"></div>
       </section>
-      <!-- Adapt Section End -->
+      <!-- Adapt content End -->
+
+      <!-- Category Button Container Start -->
+      <section
+        class="w-11/12 mx-auto mb-12 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-20"
+        id="category-btn-container"
+      ></section>
+      <!-- Loading Spinner -->
+      <div
+        id="loading-spinner"
+        class="max-[50px] flex justify-center mb-5 hidden"
+      >
+        <span class="loading loading-bars loading-xl"></span>
+      </div>
+      <!-- Category Button Container End -->
+
+      <!-- Pets Cart Section Start -->
+      <section class="w-11/12 mx-auto">
+        <div class="flex justify-between items-center mb-10">
+          <h4 class="text-[24px] font-black text-[#131313]">
+            Best Deal For you
+          </h4>
+          <button
+            id="sort-btn"
+            class="btn rounded-md bg-[#0e7a81] text-white font-bold text-[20px]"
+          >
+            Sort by Price
+          </button>
+        </div>
+
+        <!-- cards container -->
+        <div
+          class="w-full h-full flex flex-col lg:flex-row justify-center items-start lg:gap-2 gap-5"
+        >
+          <!-- Start Pets Card-->
+          <div
+            class="w-full lg:w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+            id="pets-card-container"
+          ></div>
+
+          <!-- Adopt Disable Modal Start-->
+          <!-- Open the modal using ID.showModal() method -->
+          <button class="btn hidden" onclick="adopt_disable_modal.showModal()">
+            open modal
+          </button>
+          <dialog id="adopt_disable_modal" class="modal">
+            <div class="modal-box">
+              <div
+                class="flex flex-col justify-center items-center gap-5"
+                id="modal-content"
+              >
+                <!-- Modal Content -->
+              </div>
+              <div class="modal-action">
+                <form method="dialog">
+                  <!-- if there is a button in form, it will close the modal -->
+                  <button id="adopt-closed-btn" class="btn hidden">
+                    Close
+                  </button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+          <!-- Adopt Disable Modal End -->
+
+          <!-- Open Details Modal Start -->
+          <!-- Open the modal using ID.showModal() method -->
+          <button class="btn hidden" onclick="details_btn_modal.showModal()">
+            open modal
+          </button>
+          <dialog id="details_btn_modal" class="modal">
+            <div class="modal-box w-11/12 max-w-5xl">
+              <div id="details-modal-content">
+                <!-- Modal Content -->
+              </div>
+              <div class="modal-action">
+                <form method="dialog">
+                  <!-- if there is a button in form, it will close the modal -->
+                  <button class="btn">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+          <!-- Open Details Modal End -->
+          <!-- Pets Card End -->
+
+          <!-- Like card container-->
+          <div class="w-full lg:w-2/12">
+            <div
+              class="grid grid-cols-2 p-3 gap-3 h-screen overflow-scroll border-1 border-gray-200 justify-center items-center rounded-xl"
+              id="like-card-container"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <!-- Pets Cart Section End -->
     </main>
     <!-- Main Section End -->
-    <link rel="stylesheet" href="styles/index.css" />
+
+    <!-- Footer Section Start -->
+    <footer class="w-full pt-20 pb-10 bg-[#131313] mt-10">
+      <!-- Footer content container -->
+      <div class="w-11/12 mx-auto flex flex-wrap justify-between gap-10">
+        <!-- Details -->
+        <div>
+          <div class="flex items-center gap-2 mb-5">
+            <div class="flex w-7 h-7">
+              <img class="w-full h-full" src="assets/images/logo.webp" alt="" />
+            </div>
+            <h2 class="text-3xl text-white font-bold">Peddy</h2>
+          </div>
+          <p class="text-base font-normal text-gray-400">
+            Location: av. Washington 165, NY CA 54003
+          </p>
+          <p class="text-base font-normal text-gray-400">
+            Phone: +31 85 964 47 25
+          </p>
+          <p class="text-base font-normal text-gray-400">
+            Email: info@yourdomain.com
+          </p>
+          <p class="text-base font-normal text-gray-400">
+            Openings hours: 9.00 AM - 5.00 PM
+          </p>
+          <!-- Social Icons -->
+          <div class="flex gap-6 mt-7">
+            <!-- Facebook Logo -->
+            <div class="w-8">
+              <img
+                class="w-full"
+                src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000"
+                alt=""
+              />
+            </div>
+
+            <!-- Twitter Logo -->
+            <div class="w-8">
+              <img
+                class="w-full"
+                src="https://img.icons8.com/?size=100&id=yoQabS8l0qpr&format=png&color=000000"
+                alt=""
+              />
+            </div>
+
+            <!-- Youtube Logo -->
+            <div class="w-8">
+              <img
+                class="w-full"
+                src="https://img.icons8.com/?size=100&id=19318&format=png&color=000000"
+                alt=""
+              />
+            </div>
+
+            <!-- Instagram Logo -->
+            <div class="w-8">
+              <img
+                class="w-ful"
+                src="https://img.icons8.com/?size=100&id=32323&format=png&color=000000"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- UseFul Link -->
+        <div>
+          <h3 class="text-xl font-bold text-white mb-6">Useful Links</h3>
+          <ul>
+            <li class="text-base font-normal text-gray-400">Home</li>
+            <li class="text-base font-normal text-gray-400">About Us</li>
+            <li class="text-base font-normal text-gray-400">Animals</li>
+            <li class="text-base font-normal text-gray-400">Foundation</li>
+            <li class="text-base font-normal text-gray-400">Contact</li>
+          </ul>
+        </div>
+
+        <!-- Message Input Field -->
+        <div>
+          <h3 class="text-xl font-bold text-white mb-8">Drop a Message</h3>
+          <input
+            class="input w-full p-6 bg-[#1f1f1f] text-white focus:outline-none shadow-none rounded-xl mb-4"
+            type="email"
+            placeholder="Enter your email"
+          />
+          <button
+            class="btn w-full p-6 bg-[#0E7A81] text-white text-xl font-bold rounded-xl border-none focus:outline-none shadow-none"
+            type="submit"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Added JavaScript Linked -->
     <script src="scripts/index.js"></script>
   </body>
 </html>
